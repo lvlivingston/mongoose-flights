@@ -1,0 +1,56 @@
+<%- include('../partials/header') %>
+
+<h2>Flight Details</h2>
+<section id="show-page">
+  <div>Airline: <%= flight.airline %></div>
+  <br>
+  <div>Flight Number: <%= flight.flightNo %></div>
+  <br>
+  <div>Departure Details: </div> 
+    <ul class="flight-info">
+        <li class="airport-code">Airport Code: <%= flight.airport %></li>
+        <li class="arrival-date">Date: <%= flight.departureDate %></li>
+        <li class="arrival-time">Time: <%= flight.departureTime %></li>
+    </ul>
+  <div>Arrival Details: </div>
+    <ul class="flight-info">
+        <li class="airport-code">Airport Code: <%= flight.destination %></li>
+        <li class="arrival-date">Date: <%= flight.arrivalDate %></li>
+        <li class="arrival-time">Time: <%= flight.arrivalTime %></li>
+    </ul>
+</section>
+
+<br>
+
+<section>
+
+<h2>Add a Destination</h2>
+
+<form id="add-destination-form" method="POST" action="/flights/<%= flight._id%>/destinations">
+    <label>Airport Destination:</label>
+        <select name="destination">
+            <option value="(ATL) Atlanta, GA">(ATL) Atlanta, GA</option>
+            <option value="(AUS) Austin, TX">(AUS) Austin, TX</option>
+            <option value="(DFW) Dallas, TX">(DFW) Dallas, TX</option>
+            <option value="(DEN) Denver, CO">(DEN) Denver, CO</option>
+            <option value="(JFK) New York, NY">(JFK) New York, NY</option>
+            <option value="(LAX) Los Angeles, CA">(LAX) Los Angeles, CA</option>
+            <option value="(MCO) Orlando, FL">(MCO) Orlando, FL</option>
+            <option value="(MIA) Miami, FL">(MIA) Miami, FL</option>
+            <option value="(SAN) San Diego, CA">(SAN) San Diego, CA</option>
+            <option value="(SEA) Seattle, WA">(SEA) Seattle, WA</option>
+            <option value="(SFO) San Francisco, CA">(SFO) San Francisco, CA</option>
+        </select>
+    <br><br>  
+    <label>Arrival Details:</label>
+    <input type="date" name="arrivalDate">
+    <br><br>
+    <label>Arrival Time:</label>
+    <input type="time" name="arrivalTime">
+<br><br><br>
+  <input type="submit" value="Add Destination">
+</form>
+
+</section>
+
+<%- include('../partials/footer') %>
