@@ -12,10 +12,6 @@ const destinationsSchema = new Schema({
         type: Date,
         default: 'N/A'
     },
-    arrivalTime: {
-        type: String,
-        default: 'N/A'
-    }
 }, {
     timestamps: true
 })
@@ -39,16 +35,12 @@ const flightSchema = new mongoose.Schema({
     }, 
     departureDate: {
         type: Date,
-        default: function() {
-            const oneYearFromNow = new Date(this.createdDate);
+        default: () => {
+            const oneYearFromNow = new Date();
             oneYearFromNow.setFullYear(oneYearFromNow.getFullYear() + 1);
             return oneYearFromNow;
         }
-    },  
-    departureTime: {
-        type: String,
-        default: null
-    },  
+    }, 
     destination: [destinationsSchema]
 }, {
     timestamps: true    

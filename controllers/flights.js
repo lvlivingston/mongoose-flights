@@ -23,8 +23,6 @@ function newFlight(req, res) {
 
 async function create (req, res) {
     req.body.flightNo = req.body.flightNo.trim();
-    // const inputDate = new Date(req.body.departs);
-    // const formattedDeparts = formatDate(inputDate);
     try {
         await Flight.create(req.body);
         res.redirect('/flights');

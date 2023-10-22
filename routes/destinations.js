@@ -4,7 +4,9 @@ const destinationsCtrl = require('../controllers/destinations');
 
 // All routes in this file should start with '/' (root)
 
-// POST /flights/:id/destinations
-router.post('/flights/:id/destinations', destinationsCtrl.create);
+// GET /flights/:id
+router.get('/:id', flightsCtrl.show);
+// POST route to /flights/:id/
+router.post('/:id',destinationsCtrl.create);
 
 module.exports = router;

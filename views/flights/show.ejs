@@ -8,15 +8,13 @@
   <br>
   <div>Departure Details: </div> 
     <ul class="flight-info">
-        <li class="airport-code">Airport Code: <%= flight.airport %></li>
-        <li class="arrival-date">Date: <%= flight.departureDate %></li>
-        <li class="arrival-time">Time: <%= flight.departureTime %></li>
+        <li class="airport-code">Departure Airport: <%= flight.airport %></li>
+        <li class="departure-date">Date & Time: <%= flight.departureDate %></li>
     </ul>
   <div>Arrival Details: </div>
     <ul class="flight-info">
-        <li class="airport-code">Airport Code: <%= flight.destination %></li>
-        <li class="arrival-date">Date: <%= flight.arrivalDate %></li>
-        <li class="arrival-time">Time: <%= flight.arrivalTime %></li>
+        <li class="airport-code">Destination Airport: <%= flight.destination %></li>
+        <li class="arrival-date">Date & Time: <%= flight.arrivalDate %></li>
     </ul>
 </section>
 
@@ -26,7 +24,7 @@
 
 <h2>Add a Destination</h2>
 
-<form id="add-destination-form" method="POST" action="/flights/<%= flight._id%>/destinations">
+<form id="add-destination-form" method="POST" action="/flights/<%= flight._id %>/destinations">
     <label>Airport Destination:</label>
         <select name="destination">
             <option value="(ATL) Atlanta, GA">(ATL) Atlanta, GA</option>
@@ -42,11 +40,8 @@
             <option value="(SFO) San Francisco, CA">(SFO) San Francisco, CA</option>
         </select>
     <br><br>  
-    <label>Arrival Details:</label>
-    <input type="date" name="arrivalDate">
-    <br><br>
-    <label>Arrival Time:</label>
-    <input type="time" name="arrivalTime">
+    <label>Arrival Date & Time:</label>
+    <input type="datetime-local" name="arrivalDate" required>
 <br><br><br>
   <input type="submit" value="Add Destination">
 </form>
