@@ -13,9 +13,13 @@
     </ul>
   <div>Arrival Details: </div>
     <ul class="flight-info">
-        <li class="airport-code">Destination Airport: <%= flight.destination %></li>
-        <li class="arrival-date">Date & Time: <%= flight.arrivalDate %></li>
-    </ul>
+        <% if (flight.destination.length) { %>
+        <% flight.destination.forEach(function(item) { %>
+          <li class="airport-code">Destination Airport: <%= item.destination %></li>
+          <li class="arrival-date">Date & Time: <%= item.arrivalDate %></li>
+        </ul>
+        <% }); %>  
+        <% }; %>  
 </section>
 
 <br>

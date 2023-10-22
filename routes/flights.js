@@ -14,6 +14,8 @@ router.get('/new', flightsCtrl.new);
 router.get('/:id', flightsCtrl.show);
 // POST route to /flights
 router.post('/', flightsCtrl.create);
+// // PATCH route to /flights/:id
+// router.post('/:id', flightsCtrl.update);
 
 
 module.exports = router;
