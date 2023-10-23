@@ -26,7 +26,7 @@
 
 <section>
 
-<h2>Add a Destination</h2>
+<h3>Add a Destination</h3>
 
 <form id="add-destination-form" method="POST" action="/flights/<%= flight._id %>/destinations">
     <label>Airport Destination:</label>
@@ -55,7 +55,7 @@
 
 <section>
 
-<h2>Add Ticket to this Flight</h2>
+<h3>Add a Ticket</h3>
 
 <form id="add-ticket-form" method="POST"
   action="/flights/<%= flight._id %>/tickets">
@@ -67,12 +67,16 @@
   <br><br> 
     <input type="submit" value="Add Ticket">
 </form>
+
+<br>
+
+<h3>Currently Sold Tickets</h3>
   <% if (tickets.length) { %>
     <table>
       <thead>
         <tr>
-          <th>Seat</th>
-          <th>Price</th>
+          <th>Seat Number</th>
+          <th>Price Sold</th>
         </tr>
       </thead>
       <tbody>
