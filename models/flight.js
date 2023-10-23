@@ -64,7 +64,8 @@ const flightSchema = new mongoose.Schema({
         type: String,
         default: null
     },  
-    destination: [destinationsSchema]
+    destination: [destinationsSchema],
+    tickets: [ticketSchema]
 }, {
     timestamps: true    
 }
