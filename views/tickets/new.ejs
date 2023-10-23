@@ -1,20 +1,13 @@
 <%- include('../partials/header') %>
 
-<div>Before adding, please ensure that the Performer is not in the following list:</div>
-<section id="badge-container">
-  <% performers.forEach(function(p) { %>
-    <article class="badge"><%= p.name %></article>
-  <% }) %>
-</section>
+<h2>This is the create ticket page</h2>
 
-<form id="add-ticket-form" action="/tickets" method="POST">
-  <label>Seat:</label>
-  <input type= "text" name="seat">
-  <label>Price:</label>
-  <input type="price" name="price">
-  <label>Flight:</label>
-  <input type="objectID" name="flight">
-  <input type="submit" value="Add Ticket">
+<form action="/flights/<%= ticketId %>/tickets" method="POST">
+  <label>Seat</label>
+  <input name="seatNo" required pattern="[A-F][1-9]\d?" />
+  <label>Price</label>
+  <input type="text" name="price" />
+  <input type="submit" value="Add Ticket" />
 </form>
 
 <%- include('../partials/footer') %>

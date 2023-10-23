@@ -3,6 +3,7 @@ const router = express.Router();
 
 // create constroller module
 const flightsCtrl = require('../controllers/flights')
+const ticketsCtrl = require('../controllers/tickets');
 
 // ALL ROUTES DEFAULT TO /flights
 
@@ -14,8 +15,8 @@ router.get('/new', flightsCtrl.new);
 router.get('/:id', flightsCtrl.show);
 // POST route to /flights
 router.post('/', flightsCtrl.create);
-// // PATCH route to /flights/:id
-// router.post('/:id', flightsCtrl.update);
+// POST /flights/:id/tickets
+router.post('/:id/tickets', ticketsCtrl.create);
 
 
 module.exports = router;
