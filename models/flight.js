@@ -12,7 +12,7 @@ const ticketSchema = new Schema({
       type: Number,
       min: 0,
       required: true
-    }
+    },
 }, {
     flight: {
       type: Schema.Types.ObjectId,
@@ -54,11 +54,7 @@ const flightSchema = new mongoose.Schema({
     }, 
     departureDate: {
         type: Date,
-        default: function() {
-            const oneYearFromNow = new Date(this.createdDate);
-            oneYearFromNow.setFullYear(oneYearFromNow.getFullYear() + 1);
-            return oneYearFromNow;
-        }
+        default: new Date(60000 * 60 * 24 * 365 + Date.now()),
     },  
     departureTime: {
         type: String,

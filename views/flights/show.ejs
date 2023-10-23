@@ -61,7 +61,7 @@
 <form id="add-ticket-form" method="POST"
   action="/flights/<%= flight._id %>/tickets">
   <label>Seat Number:</label>
-    <input type="text" name="seatNo" pattern="/^[A-F][1-9][0-9]?$/i" placeholder="i.e. A1" required>
+    <input type="text" name="seatNo" placeholder="i.e. A1" required>
   <br><br> 
   <label>Price:</label>
     <input type="number" name="flightPrice" pattern="\d{4}\.\d{2}/" placeholder="i.e. 349.50" required>
@@ -74,28 +74,15 @@
         <tr>
           <th>Seat</th>
           <th>Price</th>
-          <th>Flight</th>
         </tr>
       </thead>
       <tbody>
-        <!-- yes! we can define variables -->
-        <% let total = 0 %>
         <% flight.tickets.forEach(function(t) { %>
-          <!-- accumulate the total rating -->
-          <% total += t.flight %>
           <tr>
-            <!-- .toLocaleDateString() provides a more friendly date format -->
-            <td><%= t.createdAt.toLocaleDateString() %></td>
             <td><%= t.seat %></td>
             <td><%= t.price %></td>
-            <td><%= t.flight %></td>
           </tr>
         <% }); %>
-        <!-- add a row to display the average AFTER the forEach iteration -->
-        <tr>
-            <td colspan="2"></td>
-            <td><strong><%=(total / flight.tickets.length).toFixed(1) %></strong></td>
-        </tr>
       </tbody>
     </table>
   <% } else { %>
