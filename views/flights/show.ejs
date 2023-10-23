@@ -49,22 +49,25 @@
 <br><br><br>
   <input type="submit" value="Add Destination">
 </form>
-
 </section>
+
+<br>
 
 <section>
 
+<h2>Add Ticket to this Flight</h2>
+
 </form>
-<br><br><h2>Add Ticket to this Flight</h2>
 <form id="add-ticket-form" method="POST"
   action="/flights/<%= flight._id %>/tickets">
   <label>Seat Number:</label>
     <input type="text" name="seatNo" pattern="/^[A-F][1-9][0-9]?$/i" placeholder="i.e. A1" required>
-    <label>Price:</label>
+  <br><br> 
+  <label>Price:</label>
     <input type="number" name="flightPrice" pattern="\d{4}\.\d{2}/" placeholder="i.e. 349.50" required>
-  <input type="submit" value="Add Ticket">
+  <br><br> 
+    <input type="submit" value="Add Ticket">
 </form>
-
   <% if (flight.tickets.length) { %>
     <table>
       <thead>
@@ -98,7 +101,6 @@
   <% } else { %>
     <h5>No Tickets Yet</h5>
   <% } %>
-
 </section>
 
 <%- include('../partials/footer') %>
