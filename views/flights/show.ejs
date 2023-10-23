@@ -52,4 +52,41 @@
 
 </section>
 
+<section>
+  <% if (flight.tickets.length) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Seat</th>
+          <th>Price</th>
+          <th>Flight</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- yes! we can define variables -->
+        <% let total = 0 %>
+        <% flight.tickets.forEach(function(t) { %>
+          <!-- accumulate the total rating -->
+          <% total += t.flight %>
+          <tr>
+            <!-- .toLocaleDateString() provides a more friendly date format -->
+            <td><%= t.createdAt.toLocaleDateString() %></td>
+            <td><%= t.seat %></td>
+            <td><%= t.price %></td>
+            <td><%= t.flight %></td>
+          </tr>
+        <% }); %>
+        <!-- add a row to display the average AFTER the forEach iteration -->
+        <tr>
+            <td colspan="2"></td>
+            <td><strong><%=(total / flight.tickets.length).toFixed(1) %></strong></td>
+        </tr>
+      </tbody>
+    </table>
+  <% } else { %>
+    <h5>No Tickets Yet</h5>
+  <% } %>
+
+</section>
+
 <%- include('../partials/footer') %>
